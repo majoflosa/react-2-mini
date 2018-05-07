@@ -6,6 +6,8 @@ export default class TextContainer extends Component {
     this.state = {
       text: ''
     }
+
+    this.updateText = this.updateText.bind(this);
   }
 
   updateText(e) {
@@ -17,8 +19,9 @@ export default class TextContainer extends Component {
   render() {
     return (
       <div className="textContainer">
-        <textarea 
-          // style={  }
+        <textarea
+          disabled={this.props.allowEdit === 'false'} 
+          style={ this.props.myStyles }
           onChange={this.updateText}
           value={this.state.text} 
           placeholder='Start typing your thoughts here!'
